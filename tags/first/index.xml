@@ -10,9 +10,9 @@
     <atom:link href="https://brokenek.github.io/tags/first/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mypost</title>
-      <link>https://brokenek.github.io/posts/mypost/</link>
+      <link>https://brokenek.github.io/posts/2025/09/mypost/</link>
       <pubDate>Wed, 17 Sep 2025 14:11:01 +0200</pubDate>
-      <guid>https://brokenek.github.io/posts/mypost/</guid>
+      <guid>https://brokenek.github.io/posts/2025/09/mypost/</guid>
       <description>&lt;p&gt;My First Post&lt;/p&gt;&#xA;&#xD;&#xA;    &lt;img src=&#34;https://brokenek.github.io/images/Marek_person.png&#34;  alt=&#34;Marek&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px;&#34;  /&gt;</description>
     </item>
   </channel>

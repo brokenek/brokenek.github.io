@@ -6,8 +6,15 @@
     <description>Recent content in Tags on My Jorney of IT</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Sep 2025 14:11:01 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 19 Sep 2025 06:19:02 +0200</lastBuildDate>
     <atom:link href="https://brokenek.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HomeAssistant</title>
+      <link>https://brokenek.github.io/tags/homeassistant/</link>
+      <pubDate>Fri, 19 Sep 2025 06:19:02 +0200</pubDate>
+      <guid>https://brokenek.github.io/tags/homeassistant/</guid>
+      <description></description>
+    </item>
     <item>
       <title>First</title>
       <link>https://brokenek.github.io/tags/first/</link>

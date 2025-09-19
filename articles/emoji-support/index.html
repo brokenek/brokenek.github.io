@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Hugo Authors">
+<meta name="description" content="Guide to emoji usage in Hugo" />
+<meta name="keywords" content=", emoji" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="http://localhost:1313/articles/emoji-support/" />
+
+
+    <title>
+        
+            Emoji support :: My Jorney of IT 
+        
+    </title>
+
+
+
+
+
+  <link rel="stylesheet" href="/main.min.ab5336003ba331300318b49292c672210905baf1ef5410a739f647e70c8808fa.css" integrity="sha256-q1M2ADujMTADGLSSksZyIQkFuvHvVBCnOfZH5wyICPo=" crossorigin="anonymous">
+
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Emoji support">
+  <meta itemprop="description" content="Guide to emoji usage in Hugo">
+  <meta itemprop="datePublished" content="2019-03-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2019-03-05T00:00:00+00:00">
+  <meta itemprop="wordCount" content="963">
+  <meta itemprop="keywords" content="Emoji">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Emoji support">
+  <meta name="twitter:description" content="Guide to emoji usage in Hugo">
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2019-03-05 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <img src="/images/Marek_person.png" alt="" />
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/about/">About</a></li><li><a href="/howto/">How To</a></li><li><a href="/contact/">Contact</a></li><li><a href="/articles/">Artykuły</a></li><li><a href="/posts">Blog</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="http://localhost:1313/articles/emoji-support/">Emoji support</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <p>Emoji can be enabled in a Hugo project in a number of ways.</p>
+<p>The <a href="https://gohugo.io/functions/emojify/"><code>emojify</code></a> function can be called directly in templates or <a href="https://gohugo.io/templates/shortcode-templates/#inline-shortcodes">Inline Shortcodes</a>.</p>
+<p>To enable emoji globally, set <code>enableEmoji</code> to <code>true</code> in your site&rsquo;s <a href="https://gohugo.io/getting-started/configuration/">configuration</a> and then you can type emoji shorthand codes directly in content files; e.g.</p>
+<!-- raw HTML omitted -->
+<p>The <a href="http://www.emoji-cheat-sheet.com/">Emoji cheat sheet</a> is a useful reference for emoji shorthand codes.</p>
+<hr>
+<p><strong>N.B.</strong> The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">type</span>: <span style="color:#ae81ff">horizontal-stack</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">cards</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">type</span>: <span style="color:#ae81ff">custom:button-card</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">entity</span>: <span style="color:#ae81ff">person.your_name</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">device</span>: <span style="color:#ae81ff">device_tracker.[YOUR_PHONE_NAME]_telefon</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">variables</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">batt_s</span>: <span style="color:#ae81ff">sensor.[YOUR_PHONE_NAME]_battery_state</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">battery</span>: <span style="color:#ae81ff">sensor.[YOUR_PHONE_NAME]_battery_level</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">avatar_normal</span>: <span style="color:#ae81ff">/local/Marek_person.png</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">avatar_headphones</span>: <span style="color:#ae81ff">/local/Marek_music.png</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">media_player_spotify</span>: <span style="color:#ae81ff">media_player.spotify_[YOUR_SPOTIFY_NAME]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">aspect_ratio</span>: <span style="color:#ae81ff">2</span><span style="color:#ae81ff">/1.4</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Person</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">show_entity_picture</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">show_name</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hold_action</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">action</span>: <span style="color:#ae81ff">none</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">state</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">value</span>: <span style="color:#ae81ff">home</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">styles</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">card</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">background-color</span>: <span style="color:#e6db74">&#34;#202124&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">custom_fields</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">icon</span>:
+</span></span><span style="display:flex;"><span>              - <span style="color:#f92672">border-color</span>: <span style="color:#e6db74">&#34;#77c66e&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">styles</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">card</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">background-color</span>: <span style="color:#e6db74">&#34;#202124&#34;</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#ae81ff">%</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">padding</span>: <span style="color:#ae81ff">2</span><span style="color:#ae81ff">% 5% 5% 5%</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">color</span>: <span style="color:#ae81ff">gray</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">font-size</span>: <span style="color:#ae81ff">12px</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">text-shadow</span>: <span style="color:#ae81ff">0px 0px 0px black</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">text-transform</span>: <span style="color:#ae81ff">capitalize</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">center</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">align-content</span>: <span style="color:#ae81ff">center</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">grid</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">grid-template-areas</span>: <span style="color:#e6db74">&#34;\&#34;icon status\&#34; \&#34;icon battery\&#34; \&#34;icon wifi\&#34; \&#34;icon proximity\&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">grid-template-columns</span>: <span style="color:#ae81ff">1.</span><span style="color:#ae81ff">5fr 1fr</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">grid-template-rows</span>: <span style="color:#ae81ff">1fr 1fr 1fr 1fr</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">align-content</span>: <span style="color:#ae81ff">center</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">font-size</span>: <span style="color:#ae81ff">15px</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">align-self</span>: <span style="color:#ae81ff">middle</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">start</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">custom_fields</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">clip-path</span>: <span style="color:#ae81ff">circle()</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">width</span>: <span style="color:#ae81ff">80</span><span style="color:#ae81ff">%</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">pointer-events</span>: <span style="color:#ae81ff">none</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">display</span>: <span style="color:#ae81ff">grid</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">border</span>: <span style="color:#ae81ff">5px solid</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">border-color</span>: <span style="color:#e6db74">&#34;#808080&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">border-radius</span>: <span style="color:#ae81ff">500px</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">margin</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">opacity</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">align-self</span>: <span style="color:#ae81ff">center</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">center</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">status</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">start</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">color</span>: <span style="color:#ae81ff">gray</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proximity</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">align-self</span>: <span style="color:#ae81ff">middle</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">start</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">color</span>: <span style="color:#ae81ff">gray</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">wifi</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">start</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">color</span>: <span style="color:#ae81ff">gray</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">&#34;--text-wifi-color-sensor&#34;: </span>&gt;-<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              [[[ if (variables.phone_wifi_sensor == &#39;&lt;not connected&gt;&#39;) return
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &#34;#aaaaaa&#34;; ]]]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">battery</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">center</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">font-size</span>: <span style="color:#ae81ff">1rem</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">font-family</span>: <span style="color:#ae81ff">Raleway, sans-serif</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">align-self</span>: <span style="color:#ae81ff">middle</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">start</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">color</span>: <span style="color:#ae81ff">grey</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">&#34;--text-color-sensor&#34;: </span>&gt;-<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              [[[ if (variables.phone_battery_level_sensor &lt; 35) return
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &#34;#EF4F1A&#34;; ]]]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">media</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">align-self</span>: <span style="color:#ae81ff">right</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">position</span>: <span style="color:#ae81ff">absolute</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">bottom</span>: <span style="color:#ae81ff">3</span><span style="color:#ae81ff">%</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">right</span>: <span style="color:#ae81ff">4</span><span style="color:#ae81ff">%</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">left</span>: <span style="color:#ae81ff">4</span><span style="color:#ae81ff">%</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">color</span>: &gt;-<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              [[[if (states[variables.media_player_spotify].state == &#34;playing&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              return &#34;lightgrey&#34;; else return &#34;#ffffff00&#34;; ]]]          </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">custom_fields</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">icon</span>: &gt;<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        [[[ 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         if (states[variables.media_player_spotify].state ==&#39;playing&#39;) 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        return entity === undefined ? null : `&lt;img
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        src=${variables.avatar_headphones} width=&#34;100%&#34;&gt;`; } else { return
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        entity === undefined ? null : `&lt;img
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        src=&#34;${states[entity.entity_id].attributes.entity_picture}&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        width=&#34;100%&#34;&gt;`; } ]]]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">status</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        [[[
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          if (entity.state ==&#39;not_home&#39;) { 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          return `&lt;ha-icon icon=&#34;mdi:home-export-outline&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &lt;/ha-icon&gt;&lt;span&gt; On the way&lt;/span&gt;`;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          } 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          if (entity.state ==&#39;home&#39;) { 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          return `&lt;ha-icon 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            icon=&#34;mdi:home&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          } else { 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            if (entity.state ==&#39;[YOUR OTHER LOCATION]&#39;) { 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            return `&lt;ha-icon icon=&#34;mdi:pizza&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            else{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            return `&lt;ha-icon 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              icon=&#34;mdi:map-marker-radius&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ]]]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">battery</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        [[[
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          let batt_s = states[variables.batt_s].state
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            if (entity) {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              return batt_s === &#39;charging&#39; || batt_s === &#39;Charging&#39; || batt_s === &#39;full&#39; || batt_s === &#39;Full&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                ? `⚡ ${states[variables.battery].state}%`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                : batt_s === &#39;discharging&#39; || batt_s === &#39;Not Charging&#39; 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                  ?  `🔋  ${states[variables.battery].state}%`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                  :  `❓  ${states[variables.battery].state}%`;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                  }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                  ]]]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">media</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        [[[ 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         if (states[variables.media_player_spotify].state ==&#39;playing&#39;) { 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          return `&lt;marquee&gt; &lt;ha-icon
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            icon=&#34;mdi:music&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            style=&#34;width: 20px; height: 20px;&#34;&gt;&lt;/ha-icon
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &lt;span&gt; ${states[variables.media_player_spotify].attributes.media_title}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            - ${states[variables.media_player_spotify].attributes.media_artist} &lt;/marquee&gt;`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        } else {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ]]]</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">type</span>: <span style="color:#ae81ff">custom:button-card</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">entity</span>: <span style="color:#ae81ff">person.YOUR_NAME</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">device</span>: <span style="color:#ae81ff">device_tracker.YOUR_DEVICE</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">variables</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">phone_battery_level_sensor</span>: <span style="color:#e6db74">&#34;[[[ return states[\&#34;sensor.[YOUR_PHONE_NAME]_battery_level\&#34;].state]]]&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">phone_battery_state_sensor</span>: <span style="color:#e6db74">&#34;[[[ return states[\&#34;sensor.[YOUR_PHONE_NAME]_battery_state\&#34;].state]]]&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">batt_s</span>: <span style="color:#ae81ff">sensor.[YOUR_PHONE_NAME]_battery_state</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">battery</span>: <span style="color:#ae81ff">sensor.[YOUR_PHONE_NAME]_battery_level</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">avatar_normal</span>: <span style="color:#ae81ff">/local/wiki_person.png</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">avatar_headphones</span>: <span style="color:#ae81ff">/local/wiki_music.png</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">media_player_spotify</span>: <span style="color:#ae81ff">media_player.spotify_[YOUR_SPOTIFY_NAME]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">aspect_ratio</span>: <span style="color:#ae81ff">2</span><span style="color:#ae81ff">/1.4</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Wiktoria</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">show_entity_picture</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">show_name</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hold_action</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">action</span>: <span style="color:#ae81ff">none</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">state</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">value</span>: <span style="color:#ae81ff">home</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">styles</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">card</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">background-color</span>: <span style="color:#e6db74">&#34;#202124&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">custom_fields</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">icon</span>:
+</span></span><span style="display:flex;"><span>              - <span style="color:#f92672">border-color</span>: <span style="color:#e6db74">&#34;#77c66e&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">styles</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">card</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">background-color</span>: <span style="color:#e6db74">&#34;#202124&#34;</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#ae81ff">%</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">padding</span>: <span style="color:#ae81ff">2</span><span style="color:#ae81ff">% 5% 5% 5%</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">color</span>: <span style="color:#ae81ff">gray</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">font-size</span>: <span style="color:#ae81ff">12px</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">text-shadow</span>: <span style="color:#ae81ff">0px 0px 0px black</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">text-transform</span>: <span style="color:#ae81ff">capitalize</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">center</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">align-content</span>: <span style="color:#ae81ff">center</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">grid</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">grid-template-areas</span>: <span style="color:#e6db74">&#34;\&#34;icon status\&#34; \&#34;icon battery\&#34; \&#34;icon wifi\&#34; \&#34;icon proximity\&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">grid-template-columns</span>: <span style="color:#ae81ff">1.</span><span style="color:#ae81ff">5fr 1fr</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">grid-template-rows</span>: <span style="color:#ae81ff">1fr 1fr 1fr 1fr</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">align-content</span>: <span style="color:#ae81ff">center</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">font-size</span>: <span style="color:#ae81ff">15px</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">align-self</span>: <span style="color:#ae81ff">middle</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">start</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">custom_fields</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">icon</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">clip-path</span>: <span style="color:#ae81ff">circle()</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">width</span>: <span style="color:#ae81ff">80</span><span style="color:#ae81ff">%</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">pointer-events</span>: <span style="color:#ae81ff">none</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">display</span>: <span style="color:#ae81ff">grid</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">border</span>: <span style="color:#ae81ff">5px solid</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">border-color</span>: <span style="color:#e6db74">&#34;#808080&#34;</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">border-radius</span>: <span style="color:#ae81ff">500px</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">margin</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">opacity</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">align-self</span>: <span style="color:#ae81ff">center</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">center</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">status</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">start</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">color</span>: <span style="color:#ae81ff">gray</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proximity</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">align-self</span>: <span style="color:#ae81ff">middle</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">start</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">color</span>: <span style="color:#ae81ff">gray</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">wifi</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">start</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">color</span>: <span style="color:#ae81ff">gray</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">&#34;--text-wifi-color-sensor&#34;: </span>&gt;-<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              [[[ if (variables.phone_wifi_sensor == &#39;&lt;not connected&gt;&#39;) return
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &#34;#aaaaaa&#34;; ]]]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">battery</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">center</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">font-size</span>: <span style="color:#ae81ff">1rem</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">font-family</span>: <span style="color:#ae81ff">Raleway, sans-serif</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">align-self</span>: <span style="color:#ae81ff">middle</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">justify-self</span>: <span style="color:#ae81ff">start</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">color</span>: <span style="color:#ae81ff">grey</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">&#34;--text-color-sensor&#34;: </span>&gt;-<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              [[[ if (variables.phone_battery_level_sensor &lt; 35) return
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &#34;#EF4F1A&#34;; ]]]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">media</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">align-self</span>: <span style="color:#ae81ff">right</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">position</span>: <span style="color:#ae81ff">absolute</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">bottom</span>: <span style="color:#ae81ff">3</span><span style="color:#ae81ff">%</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">right</span>: <span style="color:#ae81ff">4</span><span style="color:#ae81ff">%</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">left</span>: <span style="color:#ae81ff">4</span><span style="color:#ae81ff">%</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">color</span>: &gt;-<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              [[[if (states[variables.media_player_spotify].state == &#34;playing&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              return &#34;lightgrey&#34;; else return &#34;#ffffff00&#34;; ]]]          </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">custom_fields</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">icon</span>: &gt;<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        [[[ 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         if (states[variables.media_player_spotify].state ==&#39;playing&#39;) 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        return entity === undefined ? null : `&lt;img
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        src=${variables.avatar_headphones} width=&#34;100%&#34;&gt;`; } else { return
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        entity === undefined ? null : `&lt;img
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        src=&#34;${states[entity.entity_id].attributes.entity_picture}&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        width=&#34;100%&#34;&gt;`; } ]]]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">status</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        [[[
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          if (entity.state ==&#39;not_home&#39;) { 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          return `&lt;ha-icon icon=&#34;mdi:home-export-outline&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &lt;/ha-icon&gt;&lt;span&gt; On the way&lt;/span&gt;`;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          } 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          if (entity.state ==&#39;home&#39;) { 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          return `&lt;ha-icon 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            icon=&#34;mdi:home&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          } else { 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            if (entity.state ==&#39;[YOUR OTHER LOCATION]&#39;) { 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            return `&lt;ha-icon icon=&#34;mdi:pizza&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            else{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            return `&lt;ha-icon 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              icon=&#34;mdi:map-marker-radius&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ]]]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">battery</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        [[[
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          let batt_s = states[variables.batt_s].state
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            if (entity) {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              return batt_s === &#39;charging&#39; || batt_s === &#39;Charging&#39; || batt_s === &#39;full&#39; || batt_s === &#39;Full&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                ? `⚡ ${states[variables.battery].state}%`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                : batt_s === &#39;discharging&#39; || batt_s === &#39;Not Charging&#39; 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                  ?  `🔋  ${states[variables.battery].state}%`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                  :  `❓  ${states[variables.battery].state}%`;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                  }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                  ]]] </span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">media</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        [[[ 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         if (states[variables.media_player_spotify].state ==&#39;playing&#39;) { 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          return `&lt;marquee&gt; &lt;ha-icon
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            icon=&#34;mdi:music&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            style=&#34;width: 20px; height: 20px;&#34;&gt;&lt;/ha-icon
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &lt;span&gt; ${states[variables.media_player_spotify].attributes.media_title}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            - ${states[variables.media_player_spotify].attributes.media_artist} &lt;/marquee&gt;`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        } else {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ]]]</span></span></span></code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="http://localhost:1313/tags/emoji/">emoji</a></span>
+        
+    </p>
+
+            
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2025</span>
+            <span><a href="http://localhost:1313/">Brokenek</a></span>
+            <span></span>
+            <span><a href="http://localhost:1313/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span></span>
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Personal Card in Home Assistant | My IT Jorney</title>
+<meta property="og:title" content="Personal Card in Home Assistant | My IT Jorney" />
+<meta name="twitter:title" content="Personal Card in Home Assistant | My IT Jorney" />
+<meta itemprop="name" content="Personal Card in Home Assistant | My IT Jorney" />
+<meta name="application-name" content="Personal Card in Home Assistant | My IT Jorney" />
+<meta property="og:site_name" content="Awesome hugo blog" />
+
+<meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
+<meta itemprop="description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta property="og:description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta name="twitter:description" content="Minimal Hugo blog theme with light and dark mode support" />
+
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
+
+  <link rel="alternate" hreflang="en-gb" href="https://brokenek.github.io/articles/personal_cardha/" title="English" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.150.0">
+
+    
+    <meta property="og:url" content="https://brokenek.github.io/articles/personal_cardha/">
+  <meta property="og:site_name" content="My IT Jorney">
+  <meta property="og:title" content="Personal Card in Home Assistant">
+  <meta property="og:description" content="type: horizontal-stack cards: - type: custom:button-card entity: person.your_name device: device_tracker.[YOUR_PHONE_NAME]_telefon variables: batt_s: sensor.[YOUR_PHONE_NAME]_battery_state battery: sensor.[YOUR_PHONE_NAME]_battery_level avatar_normal: /local/Marek_person.png avatar_headphones: /local/Marek_music.png media_player_spotify: media_player.spotify_[YOUR_SPOTIFY_NAME] aspect_ratio: 2/1.4 name: Person show_entity_picture: false show_name: false hold_action: action: none state: - value: home styles: card: - background-color: &#34;#202124&#34; custom_fields: icon: - border-color: &#34;#77c66e&#34; styles: card: - background-color: &#34;#202124&#34; - border-radius: 5% - padding: 2% 5% 5% 5% - color: gray - font-size: 12px - text-shadow: 0px 0px 0px black - text-transform: capitalize - justify-self: center - align-content: center grid: - grid-template-areas: &#34;\&#34;icon status\&#34; \&#34;icon battery\&#34; \&#34;icon wifi\&#34; \&#34;icon proximity\&#34;&#34; - grid-template-columns: 1.5fr 1fr - grid-template-rows: 1fr 1fr 1fr 1fr - align-content: center name: - font-size: 15px - align-self: middle - justify-self: start custom_fields: icon: - clip-path: circle() - width: 80% - pointer-events: none - display: grid - border: 5px solid - border-color: &#34;#808080&#34; - border-radius: 500px - margin: 0 0 0 0 - opacity: 1 - align-self: center - justify-self: center status: - justify-self: start - color: gray proximity: - align-self: middle - justify-self: start - color: gray wifi: - justify-self: start - color: gray - &#34;--text-wifi-color-sensor&#34;: &gt;- [[[ if (variables.phone_wifi_sensor == &#39;&lt;not connected&gt;&#39;) return &#34;#aaaaaa&#34;; ]]] battery: - justify-self: center - font-size: 1rem - font-family: Raleway, sans-serif - align-self: middle - justify-self: start - color: grey - &#34;--text-color-sensor&#34;: &gt;- [[[ if (variables.phone_battery_level_sensor &lt; 35) return &#34;#EF4F1A&#34;; ]]] media: - align-self: right - position: absolute - bottom: 3% - right: 4% - left: 4% - color: &gt;- [[[if (states[variables.media_player_spotify].state == &#34;playing&#34;) return &#34;lightgrey&#34;; else return &#34;#ffffff00&#34;; ]]] custom_fields: icon: &gt; [[[ if (states[variables.media_player_spotify].state ==&#39;playing&#39;) { return entity === undefined ? null : `&lt;img src=${variables.avatar_headphones} width=&#34;100%&#34;&gt;`; } else { return entity === undefined ? null : `&lt;img src=&#34;${states[entity.entity_id].attributes.entity_picture}&#34; width=&#34;100%&#34;&gt;`; } ]]] status: | [[[ if (entity.state ==&#39;not_home&#39;) { return `&lt;ha-icon icon=&#34;mdi:home-export-outline&#34; style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; On the way&lt;/span&gt;`; } if (entity.state ==&#39;home&#39;) { return `&lt;ha-icon icon=&#34;mdi:home&#34; style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`; } else { if (entity.state ==&#39;[YOUR OTHER LOCATION]&#39;) { return `&lt;ha-icon icon=&#34;mdi:pizza&#34; style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`; } else{ return `&lt;ha-icon icon=&#34;mdi:map-marker-radius&#34; style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`; } } ]]] battery: | [[[ let batt_s = states[variables.batt_s].state if (entity) { return batt_s === &#39;charging&#39; || batt_s === &#39;Charging&#39; || batt_s === &#39;full&#39; || batt_s === &#39;Full&#39; ? `⚡ ${states[variables.battery].state}%` : batt_s === &#39;discharging&#39; || batt_s === &#39;Not Charging&#39; ? `🔋 ${states[variables.battery].state}%` : `❓ ${states[variables.battery].state}%`; } ]]] media: | [[[ if (states[variables.media_player_spotify].state ==&#39;playing&#39;) { return `&lt;marquee&gt; &lt;ha-icon icon=&#34;mdi:music&#34; style=&#34;width: 20px; height: 20px;&#34;&gt;&lt;/ha-icon &lt;span&gt; ${states[variables.media_player_spotify].attributes.media_title} - ${states[variables.media_player_spotify].attributes.media_artist} &lt;/marquee&gt;` } else { } ]]] - type: custom:button-card entity: person.YOUR_NAME device: device_tracker.YOUR_DEVICE variables: phone_battery_level_sensor: &#34;[[[ return states[\&#34;sensor.[YOUR_PHONE_NAME]_battery_level\&#34;].state]]]&#34; phone_battery_state_sensor: &#34;[[[ return states[\&#34;sensor.[YOUR_PHONE_NAME]_battery_state\&#34;].state]]]&#34; batt_s: sensor.[YOUR_PHONE_NAME]_battery_state battery: sensor.[YOUR_PHONE_NAME]_battery_level avatar_normal: /local/wiki_person.png avatar_headphones: /local/wiki_music.png media_player_spotify: media_player.spotify_[YOUR_SPOTIFY_NAME] aspect_ratio: 2/1.4 name: Wiktoria show_entity_picture: false show_name: false hold_action: action: none state: - value: home styles: card: - background-color: &#34;#202124&#34; custom_fields: icon: - border-color: &#34;#77c66e&#34; styles: card: - background-color: &#34;#202124&#34; - border-radius: 5% - padding: 2% 5% 5% 5% - color: gray - font-size: 12px - text-shadow: 0px 0px 0px black - text-transform: capitalize - justify-self: center - align-content: center grid: - grid-template-areas: &#34;\&#34;icon status\&#34; \&#34;icon battery\&#34; \&#34;icon wifi\&#34; \&#34;icon proximity\&#34;&#34; - grid-template-columns: 1.5fr 1fr - grid-template-rows: 1fr 1fr 1fr 1fr - align-content: center name: - font-size: 15px - align-self: middle - justify-self: start custom_fields: icon: - clip-path: circle() - width: 80% - pointer-events: none - display: grid - border: 5px solid - border-color: &#34;#808080&#34; - border-radius: 500px - margin: 0 0 0 0 - opacity: 1 - align-self: center - justify-self: center status: - justify-self: start - color: gray proximity: - align-self: middle - justify-self: start - color: gray wifi: - justify-self: start - color: gray - &#34;--text-wifi-color-sensor&#34;: &gt;- [[[ if (variables.phone_wifi_sensor == &#39;&lt;not connected&gt;&#39;) return &#34;#aaaaaa&#34;; ]]] battery: - justify-self: center - font-size: 1rem - font-family: Raleway, sans-serif - align-self: middle - justify-self: start - color: grey - &#34;--text-color-sensor&#34;: &gt;- [[[ if (variables.phone_battery_level_sensor &lt; 35) return &#34;#EF4F1A&#34;; ]]] media: - align-self: right - position: absolute - bottom: 3% - right: 4% - left: 4% - color: &gt;- [[[if (states[variables.media_player_spotify].state == &#34;playing&#34;) return &#34;lightgrey&#34;; else return &#34;#ffffff00&#34;; ]]] custom_fields: icon: &gt; [[[ if (states[variables.media_player_spotify].state ==&#39;playing&#39;) { return entity === undefined ? null : `&lt;img src=${variables.avatar_headphones} width=&#34;100%&#34;&gt;`; } else { return entity === undefined ? null : `&lt;img src=&#34;${states[entity.entity_id].attributes.entity_picture}&#34; width=&#34;100%&#34;&gt;`; } ]]] status: | [[[ if (entity.state ==&#39;not_home&#39;) { return `&lt;ha-icon icon=&#34;mdi:home-export-outline&#34; style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; On the way&lt;/span&gt;`; } if (entity.state ==&#39;home&#39;) { return `&lt;ha-icon icon=&#34;mdi:home&#34; style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`; } else { if (entity.state ==&#39;[YOUR OTHER LOCATION]&#39;) { return `&lt;ha-icon icon=&#34;mdi:pizza&#34; style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`; } else{ return `&lt;ha-icon icon=&#34;mdi:map-marker-radius&#34; style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`; } } ]]] battery: | [[[ let batt_s = states[variables.batt_s].state if (entity) { return batt_s === &#39;charging&#39; || batt_s === &#39;Charging&#39; || batt_s === &#39;full&#39; || batt_s === &#39;Full&#39; ? `⚡ ${states[variables.battery].state}%` : batt_s === &#39;discharging&#39; || batt_s === &#39;Not Charging&#39; ? `🔋 ${states[variables.battery].state}%` : `❓ ${states[variables.battery].state}%`; } ]]] media: | [[[ if (states[variables.media_player_spotify].state ==&#39;playing&#39;) { return `&lt;marquee&gt; &lt;ha-icon icon=&#34;mdi:music&#34; style=&#34;width: 20px; height: 20px;&#34;&gt;&lt;/ha-icon &lt;span&gt; ${states[variables.media_player_spotify].attributes.media_title} - ${states[variables.media_player_spotify].attributes.media_artist} &lt;/marquee&gt;` } else { } ]]]">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="articles">
+    <meta property="article:published_time" content="2025-09-19T06:19:02+02:00">
+    <meta property="article:modified_time" content="2025-09-19T06:19:02+02:00">
+    <meta property="article:tag" content="HomeAssistant">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Personal Card in Home Assistant">
+  <meta name="twitter:description" content="type: horizontal-stack cards: - type: custom:button-card entity: person.your_name device: device_tracker.[YOUR_PHONE_NAME]_telefon variables: batt_s: sensor.[YOUR_PHONE_NAME]_battery_state battery: sensor.[YOUR_PHONE_NAME]_battery_level avatar_normal: /local/Marek_person.png avatar_headphones: /local/Marek_music.png media_player_spotify: media_player.spotify_[YOUR_SPOTIFY_NAME] aspect_ratio: 2/1.4 name: Person show_entity_picture: false show_name: false hold_action: action: none state: - value: home styles: card: - background-color: &#34;#202124&#34; custom_fields: icon: - border-color: &#34;#77c66e&#34; styles: card: - background-color: &#34;#202124&#34; - border-radius: 5% - padding: 2% 5% 5% 5% - color: gray - font-size: 12px - text-shadow: 0px 0px 0px black - text-transform: capitalize - justify-self: center - align-content: center grid: - grid-template-areas: &#34;\&#34;icon status\&#34; \&#34;icon battery\&#34; \&#34;icon wifi\&#34; \&#34;icon proximity\&#34;&#34; - grid-template-columns: 1.5fr 1fr - grid-template-rows: 1fr 1fr 1fr 1fr - align-content: center name: - font-size: 15px - align-self: middle - justify-self: start custom_fields: icon: - clip-path: circle() - width: 80% - pointer-events: none - display: grid - border: 5px solid - border-color: &#34;#808080&#34; - border-radius: 500px - margin: 0 0 0 0 - opacity: 1 - align-self: center - justify-self: center status: - justify-self: start - color: gray proximity: - align-self: middle - justify-self: start - color: gray wifi: - justify-self: start - color: gray - &#34;--text-wifi-color-sensor&#34;: &gt;- [[[ if (variables.phone_wifi_sensor == &#39;&lt;not connected&gt;&#39;) return &#34;#aaaaaa&#34;; ]]] battery: - justify-self: center - font-size: 1rem - font-family: Raleway, sans-serif - align-self: middle - justify-self: start - color: grey - &#34;--text-color-sensor&#34;: &gt;- [[[ if (variables.phone_battery_level_sensor &lt; 35) return &#34;#EF4F1A&#34;; ]]] media: - align-self: right - position: absolute - bottom: 3% - right: 4% - left: 4% - color: &gt;- [[[if (states[variables.media_player_spotify].state == &#34;playing&#34;) return &#34;lightgrey&#34;; else return &#34;#ffffff00&#34;; ]]] custom_fields: icon: &gt; [[[ if (states[variables.media_player_spotify].state ==&#39;playing&#39;) { return entity === undefined ? null : `&lt;img src=${variables.avatar_headphones} width=&#34;100%&#34;&gt;`; } else { return entity === undefined ? null : `&lt;img src=&#34;${states[entity.entity_id].attributes.entity_picture}&#34; width=&#34;100%&#34;&gt;`; } ]]] status: | [[[ if (entity.state ==&#39;not_home&#39;) { return `&lt;ha-icon icon=&#34;mdi:home-export-outline&#34; style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; On the way&lt;/span&gt;`; } if (entity.state ==&#39;home&#39;) { return `&lt;ha-icon icon=&#34;mdi:home&#34; style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`; } else { if (entity.state ==&#39;[YOUR OTHER LOCATION]&#39;) { return `&lt;ha-icon icon=&#34;mdi:pizza&#34; style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`; } else{ return `&lt;ha-icon icon=&#34;mdi:map-marker-radius&#34; style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`; } } ]]] battery: | [[[ let batt_s = states[variables.batt_s].state if (entity) { return batt_s === &#39;charging&#39; || batt_s === &#39;Charging&#39; || batt_s === &#39;full&#39; || batt_s === &#39;Full&#39; ? `⚡ ${states[variables.battery].state}%` : batt_s === &#39;discharging&#39; || batt_s === &#39;Not Charging&#39; ? `🔋 ${states[variables.battery].state}%` : `❓ ${states[variables.battery].state}%`; } ]]] media: | [[[ if (states[variables.media_player_spotify].state ==&#39;playing&#39;) { return `&lt;marquee&gt; &lt;ha-icon icon=&#34;mdi:music&#34; style=&#34;width: 20px; height: 20px;&#34;&gt;&lt;/ha-icon &lt;span&gt; ${states[variables.media_player_spotify].attributes.media_title} - ${states[variables.media_player_spotify].attributes.media_artist} &lt;/marquee&gt;` } else { } ]]] - type: custom:button-card entity: person.YOUR_NAME device: device_tracker.YOUR_DEVICE variables: phone_battery_level_sensor: &#34;[[[ return states[\&#34;sensor.[YOUR_PHONE_NAME]_battery_level\&#34;].state]]]&#34; phone_battery_state_sensor: &#34;[[[ return states[\&#34;sensor.[YOUR_PHONE_NAME]_battery_state\&#34;].state]]]&#34; batt_s: sensor.[YOUR_PHONE_NAME]_battery_state battery: sensor.[YOUR_PHONE_NAME]_battery_level avatar_normal: /local/wiki_person.png avatar_headphones: /local/wiki_music.png media_player_spotify: media_player.spotify_[YOUR_SPOTIFY_NAME] aspect_ratio: 2/1.4 name: Wiktoria show_entity_picture: false show_name: false hold_action: action: none state: - value: home styles: card: - background-color: &#34;#202124&#34; custom_fields: icon: - border-color: &#34;#77c66e&#34; styles: card: - background-color: &#34;#202124&#34; - border-radius: 5% - padding: 2% 5% 5% 5% - color: gray - font-size: 12px - text-shadow: 0px 0px 0px black - text-transform: capitalize - justify-self: center - align-content: center grid: - grid-template-areas: &#34;\&#34;icon status\&#34; \&#34;icon battery\&#34; \&#34;icon wifi\&#34; \&#34;icon proximity\&#34;&#34; - grid-template-columns: 1.5fr 1fr - grid-template-rows: 1fr 1fr 1fr 1fr - align-content: center name: - font-size: 15px - align-self: middle - justify-self: start custom_fields: icon: - clip-path: circle() - width: 80% - pointer-events: none - display: grid - border: 5px solid - border-color: &#34;#808080&#34; - border-radius: 500px - margin: 0 0 0 0 - opacity: 1 - align-self: center - justify-self: center status: - justify-self: start - color: gray proximity: - align-self: middle - justify-self: start - color: gray wifi: - justify-self: start - color: gray - &#34;--text-wifi-color-sensor&#34;: &gt;- [[[ if (variables.phone_wifi_sensor == &#39;&lt;not connected&gt;&#39;) return &#34;#aaaaaa&#34;; ]]] battery: - justify-self: center - font-size: 1rem - font-family: Raleway, sans-serif - align-self: middle - justify-self: start - color: grey - &#34;--text-color-sensor&#34;: &gt;- [[[ if (variables.phone_battery_level_sensor &lt; 35) return &#34;#EF4F1A&#34;; ]]] media: - align-self: right - position: absolute - bottom: 3% - right: 4% - left: 4% - color: &gt;- [[[if (states[variables.media_player_spotify].state == &#34;playing&#34;) return &#34;lightgrey&#34;; else return &#34;#ffffff00&#34;; ]]] custom_fields: icon: &gt; [[[ if (states[variables.media_player_spotify].state ==&#39;playing&#39;) { return entity === undefined ? null : `&lt;img src=${variables.avatar_headphones} width=&#34;100%&#34;&gt;`; } else { return entity === undefined ? null : `&lt;img src=&#34;${states[entity.entity_id].attributes.entity_picture}&#34; width=&#34;100%&#34;&gt;`; } ]]] status: | [[[ if (entity.state ==&#39;not_home&#39;) { return `&lt;ha-icon icon=&#34;mdi:home-export-outline&#34; style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; On the way&lt;/span&gt;`; } if (entity.state ==&#39;home&#39;) { return `&lt;ha-icon icon=&#34;mdi:home&#34; style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`; } else { if (entity.state ==&#39;[YOUR OTHER LOCATION]&#39;) { return `&lt;ha-icon icon=&#34;mdi:pizza&#34; style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`; } else{ return `&lt;ha-icon icon=&#34;mdi:map-marker-radius&#34; style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt; &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`; } } ]]] battery: | [[[ let batt_s = states[variables.batt_s].state if (entity) { return batt_s === &#39;charging&#39; || batt_s === &#39;Charging&#39; || batt_s === &#39;full&#39; || batt_s === &#39;Full&#39; ? `⚡ ${states[variables.battery].state}%` : batt_s === &#39;discharging&#39; || batt_s === &#39;Not Charging&#39; ? `🔋 ${states[variables.battery].state}%` : `❓ ${states[variables.battery].state}%`; } ]]] media: | [[[ if (states[variables.media_player_spotify].state ==&#39;playing&#39;) { return `&lt;marquee&gt; &lt;ha-icon icon=&#34;mdi:music&#34; style=&#34;width: 20px; height: 20px;&#34;&gt;&lt;/ha-icon &lt;span&gt; ${states[variables.media_player_spotify].attributes.media_title} - ${states[variables.media_player_spotify].attributes.media_artist} &lt;/marquee&gt;` } else { } ]]]">
+
+
+    
+
+    <link rel="canonical" href="https://brokenek.github.io/articles/personal_cardha/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://brokenek.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://brokenek.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link active" href="/articles/">
+                        Articles
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Personal Card in Home Assistant</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-09-19T06:19:02&#43;02:00" itemprop="datePublished"> 19 Sep 2025 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p>
+    <img src="https://github.com/brokenek/home-lab/blob/homelab/img/music_in_not_home.png?raw=true"  class="center"  style="border-radius: 8px;"  />
+
+
+
+    <img src="https://github.com/brokenek/home-lab/blob/homelab/img/music_out_home1.png?raw=true"  class="center"  style="border-radius: 8px;"  />
+
+</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">horizontal-stack</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">cards</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">custom:button-card</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l">person.your_name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l">device_tracker.[YOUR_PHONE_NAME]_telefon</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">variables</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">batt_s</span><span class="p">:</span><span class="w"> </span><span class="l">sensor.[YOUR_PHONE_NAME]_battery_state</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">battery</span><span class="p">:</span><span class="w"> </span><span class="l">sensor.[YOUR_PHONE_NAME]_battery_level</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">avatar_normal</span><span class="p">:</span><span class="w"> </span><span class="l">/local/Marek_person.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">avatar_headphones</span><span class="p">:</span><span class="w"> </span><span class="l">/local/Marek_music.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">media_player_spotify</span><span class="p">:</span><span class="w"> </span><span class="l">media_player.spotify_[YOUR_SPOTIFY_NAME]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">aspect_ratio</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="l">/1.4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Person</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">show_entity_picture</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">show_name</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hold_action</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">none</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l">home</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">styles</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">card</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">background-color</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;#202124&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">custom_fields</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">icon</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span>- <span class="nt">border-color</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;#77c66e&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">styles</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">card</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">background-color</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;#202124&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">border-radius</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="l">%</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">padding</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="l">% 5% 5% 5%</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="l">gray</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">font-size</span><span class="p">:</span><span class="w"> </span><span class="l">12px</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">text-shadow</span><span class="p">:</span><span class="w"> </span><span class="l">0px 0px 0px black</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">text-transform</span><span class="p">:</span><span class="w"> </span><span class="l">capitalize</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">center</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">align-content</span><span class="p">:</span><span class="w"> </span><span class="l">center</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">grid</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">grid-template-areas</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;\&#34;icon status\&#34; \&#34;icon battery\&#34; \&#34;icon wifi\&#34; \&#34;icon proximity\&#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="m">1.</span><span class="l">5fr 1fr</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="l">1fr 1fr 1fr 1fr</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">align-content</span><span class="p">:</span><span class="w"> </span><span class="l">center</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">font-size</span><span class="p">:</span><span class="w"> </span><span class="l">15px</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">align-self</span><span class="p">:</span><span class="w"> </span><span class="l">middle</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">custom_fields</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">clip-path</span><span class="p">:</span><span class="w"> </span><span class="l">circle()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">width</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="l">%</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">pointer-events</span><span class="p">:</span><span class="w"> </span><span class="l">none</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">display</span><span class="p">:</span><span class="w"> </span><span class="l">grid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">border</span><span class="p">:</span><span class="w"> </span><span class="l">5px solid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">border-color</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;#808080&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">border-radius</span><span class="p">:</span><span class="w"> </span><span class="l">500px</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">margin</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">opacity</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">align-self</span><span class="p">:</span><span class="w"> </span><span class="l">center</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">center</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">status</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="l">gray</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">proximity</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">align-self</span><span class="p">:</span><span class="w"> </span><span class="l">middle</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="l">gray</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">wifi</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="l">gray</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">&#34;--text-wifi-color-sensor&#34;: </span><span class="p">&gt;-</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">              [[[ if (variables.phone_wifi_sensor == &#39;&lt;not connected&gt;&#39;) return
+</span></span></span><span class="line"><span class="cl"><span class="sd">              &#34;#aaaaaa&#34;; ]]]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">battery</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">center</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">font-size</span><span class="p">:</span><span class="w"> </span><span class="l">1rem</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">font-family</span><span class="p">:</span><span class="w"> </span><span class="l">Raleway, sans-serif</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">align-self</span><span class="p">:</span><span class="w"> </span><span class="l">middle</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="l">grey</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">&#34;--text-color-sensor&#34;: </span><span class="p">&gt;-</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">              [[[ if (variables.phone_battery_level_sensor &lt; 35) return
+</span></span></span><span class="line"><span class="cl"><span class="sd">              &#34;#EF4F1A&#34;; ]]]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">media</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">align-self</span><span class="p">:</span><span class="w"> </span><span class="l">right</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">position</span><span class="p">:</span><span class="w"> </span><span class="l">absolute</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">bottom</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="l">%</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">right</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="l">%</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">left</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="l">%</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="p">&gt;-</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">              [[[if (states[variables.media_player_spotify].state == &#34;playing&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="sd">              return &#34;lightgrey&#34;; else return &#34;#ffffff00&#34;; ]]]          </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">custom_fields</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="p">&gt;</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">        [[[ 
+</span></span></span><span class="line"><span class="cl"><span class="sd">         if (states[variables.media_player_spotify].state ==&#39;playing&#39;) 
+</span></span></span><span class="line"><span class="cl"><span class="sd">         {
+</span></span></span><span class="line"><span class="cl"><span class="sd">        return entity === undefined ? null : `&lt;img
+</span></span></span><span class="line"><span class="cl"><span class="sd">        src=${variables.avatar_headphones} width=&#34;100%&#34;&gt;`; } else { return
+</span></span></span><span class="line"><span class="cl"><span class="sd">        entity === undefined ? null : `&lt;img
+</span></span></span><span class="line"><span class="cl"><span class="sd">        src=&#34;${states[entity.entity_id].attributes.entity_picture}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">        width=&#34;100%&#34;&gt;`; } ]]]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">        [[[
+</span></span></span><span class="line"><span class="cl"><span class="sd">          if (entity.state ==&#39;not_home&#39;) { 
+</span></span></span><span class="line"><span class="cl"><span class="sd">          return `&lt;ha-icon icon=&#34;mdi:home-export-outline&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            &lt;/ha-icon&gt;&lt;span&gt; On the way&lt;/span&gt;`;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          } 
+</span></span></span><span class="line"><span class="cl"><span class="sd">          if (entity.state ==&#39;home&#39;) { 
+</span></span></span><span class="line"><span class="cl"><span class="sd">          return `&lt;ha-icon 
+</span></span></span><span class="line"><span class="cl"><span class="sd">            icon=&#34;mdi:home&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          } else { 
+</span></span></span><span class="line"><span class="cl"><span class="sd">            if (entity.state ==&#39;[YOUR OTHER LOCATION]&#39;) { 
+</span></span></span><span class="line"><span class="cl"><span class="sd">            return `&lt;ha-icon icon=&#34;mdi:pizza&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">              style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sd">              &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            }
+</span></span></span><span class="line"><span class="cl"><span class="sd">            else{
+</span></span></span><span class="line"><span class="cl"><span class="sd">            return `&lt;ha-icon 
+</span></span></span><span class="line"><span class="cl"><span class="sd">              icon=&#34;mdi:map-marker-radius&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">              style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sd">              &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            }
+</span></span></span><span class="line"><span class="cl"><span class="sd">          }
+</span></span></span><span class="line"><span class="cl"><span class="sd">        ]]]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">battery</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">        [[[
+</span></span></span><span class="line"><span class="cl"><span class="sd">          let batt_s = states[variables.batt_s].state
+</span></span></span><span class="line"><span class="cl"><span class="sd">            if (entity) {
+</span></span></span><span class="line"><span class="cl"><span class="sd">              return batt_s === &#39;charging&#39; || batt_s === &#39;Charging&#39; || batt_s === &#39;full&#39; || batt_s === &#39;Full&#39;
+</span></span></span><span class="line"><span class="cl"><span class="sd">                ? `⚡ ${states[variables.battery].state}%`
+</span></span></span><span class="line"><span class="cl"><span class="sd">                : batt_s === &#39;discharging&#39; || batt_s === &#39;Not Charging&#39; 
+</span></span></span><span class="line"><span class="cl"><span class="sd">                  ?  `🔋  ${states[variables.battery].state}%`
+</span></span></span><span class="line"><span class="cl"><span class="sd">                  :  `❓  ${states[variables.battery].state}%`;
+</span></span></span><span class="line"><span class="cl"><span class="sd">                  }
+</span></span></span><span class="line"><span class="cl"><span class="sd">                  ]]]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">media</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">        [[[ 
+</span></span></span><span class="line"><span class="cl"><span class="sd">         if (states[variables.media_player_spotify].state ==&#39;playing&#39;) { 
+</span></span></span><span class="line"><span class="cl"><span class="sd">          return `&lt;marquee&gt; &lt;ha-icon
+</span></span></span><span class="line"><span class="cl"><span class="sd">            icon=&#34;mdi:music&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            style=&#34;width: 20px; height: 20px;&#34;&gt;&lt;/ha-icon
+</span></span></span><span class="line"><span class="cl"><span class="sd">            &lt;span&gt; ${states[variables.media_player_spotify].attributes.media_title}
+</span></span></span><span class="line"><span class="cl"><span class="sd">            - ${states[variables.media_player_spotify].attributes.media_artist} &lt;/marquee&gt;`
+</span></span></span><span class="line"><span class="cl"><span class="sd">        } else {
+</span></span></span><span class="line"><span class="cl"><span class="sd">          
+</span></span></span><span class="line"><span class="cl"><span class="sd">        }
+</span></span></span><span class="line"><span class="cl"><span class="sd">        ]]]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">custom:button-card</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l">person.YOUR_NAME</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l">device_tracker.YOUR_DEVICE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">variables</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">phone_battery_level_sensor</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;[[[ return states[\&#34;sensor.[YOUR_PHONE_NAME]_battery_level\&#34;].state]]]&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">phone_battery_state_sensor</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;[[[ return states[\&#34;sensor.[YOUR_PHONE_NAME]_battery_state\&#34;].state]]]&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">batt_s</span><span class="p">:</span><span class="w"> </span><span class="l">sensor.[YOUR_PHONE_NAME]_battery_state</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">battery</span><span class="p">:</span><span class="w"> </span><span class="l">sensor.[YOUR_PHONE_NAME]_battery_level</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">avatar_normal</span><span class="p">:</span><span class="w"> </span><span class="l">/local/wiki_person.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">avatar_headphones</span><span class="p">:</span><span class="w"> </span><span class="l">/local/wiki_music.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">media_player_spotify</span><span class="p">:</span><span class="w"> </span><span class="l">media_player.spotify_[YOUR_SPOTIFY_NAME]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">aspect_ratio</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="l">/1.4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Wiktoria</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">show_entity_picture</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">show_name</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hold_action</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">none</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l">home</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">styles</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">card</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">background-color</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;#202124&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">custom_fields</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">icon</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span>- <span class="nt">border-color</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;#77c66e&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">styles</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">card</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">background-color</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;#202124&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">border-radius</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="l">%</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">padding</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="l">% 5% 5% 5%</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="l">gray</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">font-size</span><span class="p">:</span><span class="w"> </span><span class="l">12px</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">text-shadow</span><span class="p">:</span><span class="w"> </span><span class="l">0px 0px 0px black</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">text-transform</span><span class="p">:</span><span class="w"> </span><span class="l">capitalize</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">center</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">align-content</span><span class="p">:</span><span class="w"> </span><span class="l">center</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">grid</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">grid-template-areas</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;\&#34;icon status\&#34; \&#34;icon battery\&#34; \&#34;icon wifi\&#34; \&#34;icon proximity\&#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="m">1.</span><span class="l">5fr 1fr</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="l">1fr 1fr 1fr 1fr</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">align-content</span><span class="p">:</span><span class="w"> </span><span class="l">center</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">font-size</span><span class="p">:</span><span class="w"> </span><span class="l">15px</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">align-self</span><span class="p">:</span><span class="w"> </span><span class="l">middle</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">custom_fields</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">clip-path</span><span class="p">:</span><span class="w"> </span><span class="l">circle()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">width</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="l">%</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">pointer-events</span><span class="p">:</span><span class="w"> </span><span class="l">none</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">display</span><span class="p">:</span><span class="w"> </span><span class="l">grid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">border</span><span class="p">:</span><span class="w"> </span><span class="l">5px solid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">border-color</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;#808080&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">border-radius</span><span class="p">:</span><span class="w"> </span><span class="l">500px</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">margin</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">opacity</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">align-self</span><span class="p">:</span><span class="w"> </span><span class="l">center</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">center</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">status</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="l">gray</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">proximity</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">align-self</span><span class="p">:</span><span class="w"> </span><span class="l">middle</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="l">gray</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">wifi</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="l">gray</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">&#34;--text-wifi-color-sensor&#34;: </span><span class="p">&gt;-</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">              [[[ if (variables.phone_wifi_sensor == &#39;&lt;not connected&gt;&#39;) return
+</span></span></span><span class="line"><span class="cl"><span class="sd">              &#34;#aaaaaa&#34;; ]]]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">battery</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">center</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">font-size</span><span class="p">:</span><span class="w"> </span><span class="l">1rem</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">font-family</span><span class="p">:</span><span class="w"> </span><span class="l">Raleway, sans-serif</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">align-self</span><span class="p">:</span><span class="w"> </span><span class="l">middle</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">justify-self</span><span class="p">:</span><span class="w"> </span><span class="l">start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="l">grey</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">&#34;--text-color-sensor&#34;: </span><span class="p">&gt;-</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">              [[[ if (variables.phone_battery_level_sensor &lt; 35) return
+</span></span></span><span class="line"><span class="cl"><span class="sd">              &#34;#EF4F1A&#34;; ]]]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">media</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">align-self</span><span class="p">:</span><span class="w"> </span><span class="l">right</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">position</span><span class="p">:</span><span class="w"> </span><span class="l">absolute</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">bottom</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="l">%</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">right</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="l">%</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">left</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="l">%</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="p">&gt;-</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">              [[[if (states[variables.media_player_spotify].state == &#34;playing&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="sd">              return &#34;lightgrey&#34;; else return &#34;#ffffff00&#34;; ]]]          </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">custom_fields</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="p">&gt;</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">        [[[ 
+</span></span></span><span class="line"><span class="cl"><span class="sd">         if (states[variables.media_player_spotify].state ==&#39;playing&#39;) 
+</span></span></span><span class="line"><span class="cl"><span class="sd">         {
+</span></span></span><span class="line"><span class="cl"><span class="sd">        return entity === undefined ? null : `&lt;img
+</span></span></span><span class="line"><span class="cl"><span class="sd">        src=${variables.avatar_headphones} width=&#34;100%&#34;&gt;`; } else { return
+</span></span></span><span class="line"><span class="cl"><span class="sd">        entity === undefined ? null : `&lt;img
+</span></span></span><span class="line"><span class="cl"><span class="sd">        src=&#34;${states[entity.entity_id].attributes.entity_picture}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">        width=&#34;100%&#34;&gt;`; } ]]]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">        [[[
+</span></span></span><span class="line"><span class="cl"><span class="sd">          if (entity.state ==&#39;not_home&#39;) { 
+</span></span></span><span class="line"><span class="cl"><span class="sd">          return `&lt;ha-icon icon=&#34;mdi:home-export-outline&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            &lt;/ha-icon&gt;&lt;span&gt; On the way&lt;/span&gt;`;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          } 
+</span></span></span><span class="line"><span class="cl"><span class="sd">          if (entity.state ==&#39;home&#39;) { 
+</span></span></span><span class="line"><span class="cl"><span class="sd">          return `&lt;ha-icon 
+</span></span></span><span class="line"><span class="cl"><span class="sd">            icon=&#34;mdi:home&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          } else { 
+</span></span></span><span class="line"><span class="cl"><span class="sd">            if (entity.state ==&#39;[YOUR OTHER LOCATION]&#39;) { 
+</span></span></span><span class="line"><span class="cl"><span class="sd">            return `&lt;ha-icon icon=&#34;mdi:pizza&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">              style=&#34;width: 20px; height: 20px; color: &#39;#888888&#39;;&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sd">              &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            }
+</span></span></span><span class="line"><span class="cl"><span class="sd">            else{
+</span></span></span><span class="line"><span class="cl"><span class="sd">            return `&lt;ha-icon 
+</span></span></span><span class="line"><span class="cl"><span class="sd">              icon=&#34;mdi:map-marker-radius&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">              style=&#34;width: 20px; height: 20px; color: 888888;&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sd">              &lt;/ha-icon&gt;&lt;span&gt; ${entity.state}&lt;/span&gt;`;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            }
+</span></span></span><span class="line"><span class="cl"><span class="sd">          }
+</span></span></span><span class="line"><span class="cl"><span class="sd">        ]]]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">battery</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">        [[[
+</span></span></span><span class="line"><span class="cl"><span class="sd">          let batt_s = states[variables.batt_s].state
+</span></span></span><span class="line"><span class="cl"><span class="sd">            if (entity) {
+</span></span></span><span class="line"><span class="cl"><span class="sd">              return batt_s === &#39;charging&#39; || batt_s === &#39;Charging&#39; || batt_s === &#39;full&#39; || batt_s === &#39;Full&#39;
+</span></span></span><span class="line"><span class="cl"><span class="sd">                ? `⚡ ${states[variables.battery].state}%`
+</span></span></span><span class="line"><span class="cl"><span class="sd">                : batt_s === &#39;discharging&#39; || batt_s === &#39;Not Charging&#39; 
+</span></span></span><span class="line"><span class="cl"><span class="sd">                  ?  `🔋  ${states[variables.battery].state}%`
+</span></span></span><span class="line"><span class="cl"><span class="sd">                  :  `❓  ${states[variables.battery].state}%`;
+</span></span></span><span class="line"><span class="cl"><span class="sd">                  }
+</span></span></span><span class="line"><span class="cl"><span class="sd">                  ]]] </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">media</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">        [[[ 
+</span></span></span><span class="line"><span class="cl"><span class="sd">         if (states[variables.media_player_spotify].state ==&#39;playing&#39;) { 
+</span></span></span><span class="line"><span class="cl"><span class="sd">          return `&lt;marquee&gt; &lt;ha-icon
+</span></span></span><span class="line"><span class="cl"><span class="sd">            icon=&#34;mdi:music&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            style=&#34;width: 20px; height: 20px;&#34;&gt;&lt;/ha-icon
+</span></span></span><span class="line"><span class="cl"><span class="sd">            &lt;span&gt; ${states[variables.media_player_spotify].attributes.media_title}
+</span></span></span><span class="line"><span class="cl"><span class="sd">            - ${states[variables.media_player_spotify].attributes.media_artist} &lt;/marquee&gt;`
+</span></span></span><span class="line"><span class="cl"><span class="sd">        } else {
+</span></span></span><span class="line"><span class="cl"><span class="sd">          
+</span></span></span><span class="line"><span class="cl"><span class="sd">        }
+</span></span></span><span class="line"><span class="cl"><span class="sd">        ]]]
+</span></span></span><span class="line"><span class="cl"><span class="sd">        </span></span></span></code></pre></div>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/brokenek" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="/index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2025 Brokenek.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script src="https://brokenek.github.io/js/main.min.888b341849b9b795ccdffda90734d38b166a515581d959e18ff4d1d86cdcc9a6.js" integrity="sha256-iIs0GEm5t5XM3/2pBzTTixZqUVWB2Vnhj/TR2GzcyaY="></script>
+
+    
+
+</body>
+</html>

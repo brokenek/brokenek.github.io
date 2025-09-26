@@ -6,17 +6,30 @@
     <description>Recent content in Home on My IT Jorney</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 17 Sep 2025 14:11:01 +0200</lastBuildDate><atom:link href="https://brokenek.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://brokenek.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Mypost</title>
-      <link>https://brokenek.github.io/posts/my_post/</link>
-      <pubDate>Wed, 17 Sep 2025 14:11:01 +0200</pubDate>
+      <title>Hapy Birthday HA</title>
+      <link>https://brokenek.github.io/posts/emoji-support/</link>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://brokenek.github.io/posts/my_post/</guid>
+      <guid>https://brokenek.github.io/posts/emoji-support/</guid>
       
-      <description>&lt;p&gt;My First Post&lt;/p&gt;
-
-    &lt;img src=&#34;https://brokenek.github.io/images/Marek_person.png&#34;  alt=&#34;Marek&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px;&#34;  /&gt;</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://brokenek.github.io/posts/emoji-support/image.png&#34; alt=&#34;alt text&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Every September, we celebrate the anniversary of Home Assistant’s first PR in 2013 – for our 12th birthday, we’re going all in on community again. Last month, we asked for submissions on how Home Assistant helps you, and today we will highlight our favorites! We will also take a look at all the cool milestones over the past year in the project, thanks to contributions from you all, and the new things coming up for the community.
+It’s a communal effort&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Music Assistant 2.0 Your Music, Your Players</title>
+      <link>https://brokenek.github.io/posts/music_assistant/</link>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://brokenek.github.io/posts/music_assistant/</guid>
+      
+      <description>&lt;p&gt;&lt;img src=&#34;https://brokenek.github.io/posts/music_assistant/image.png&#34; alt=&#34;alt text&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Today, exactly five years ago, I, Marcel, started working on &lt;a href=&#34;https://music-assistant.io/&#34; rel=&#34;external nofollow&#34;&gt;Music Assistant&lt;iconify-icon inline=&#34;true&#34; icon=&#34;tabler:external-link&#34; class=&#34;external-link&#34;&gt;&lt;/iconify-icon&gt;&lt;/a&gt;. What began as a quick script, to sync my playlists so I could switch between streaming providers, grew into a beast on its own.&lt;/p&gt;
+&lt;p&gt;Music Assistant is what I’d like to call a “music library manager” – it gives you full control of playing YOUR music on your players. Just like Home Assistant centralizes all your devices and services to work together, Music Assistant does the same with your music sources and smart audio-playing devices.&lt;/p&gt;</description>
       
     </item>
     
@@ -41,18 +54,6 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;toc&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To disable ToC globally, simply ignore the &lt;code&gt;toc&lt;/code&gt; parameter or set it to &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Math Typesetting - use Mathematical notation in blog posts</title>
-      <link>https://brokenek.github.io/posts/math-typesetting/</link>
-      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://brokenek.github.io/posts/math-typesetting/</guid>
-      
-      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using
-&lt;a href=&#34;https://github.com/hugo-sid/hugo-blog-awesome/blob/main/layouts/partials/helpers/katex.html&#34;&gt;third party JavaScript libraries&lt;/a&gt;.&lt;/p&gt;</description>
       
     </item>
     
@@ -86,17 +87,6 @@
       <guid>https://brokenek.github.io/posts/placeholder-text/</guid>
       
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Emoji Support</title>
-      <link>https://brokenek.github.io/posts/emoji-support/</link>
-      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://brokenek.github.io/posts/emoji-support/</guid>
-      
-      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
       
     </item>
     

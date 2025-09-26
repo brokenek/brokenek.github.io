@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hapy Birthday HA on My IT Jorney</title>
+    <link>https://brokenek.github.io/tags/hapy-birthday-ha/</link>
+    <description>Recent content in Hapy Birthday HA on My IT Jorney</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 17 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://brokenek.github.io/tags/hapy-birthday-ha/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hapy Birthday HA</title>
+      <link>https://brokenek.github.io/posts/emoji-support/</link>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://brokenek.github.io/posts/emoji-support/</guid>
+      
+      <description>&lt;p&gt;&lt;img src=&#34;https://brokenek.github.io/posts/emoji-support/image.png&#34; alt=&#34;alt text&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Every September, we celebrate the anniversary of Home Assistant’s first PR in 2013 – for our 12th birthday, we’re going all in on community again. Last month, we asked for submissions on how Home Assistant helps you, and today we will highlight our favorites! We will also take a look at all the cool milestones over the past year in the project, thanks to contributions from you all, and the new things coming up for the community.
+It’s a communal effort&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

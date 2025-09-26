@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Music Assistant 2.0 Your Music, Your Players on My IT Jorney</title>
+    <link>https://brokenek.github.io/tags/music-assistant-2.0-your-music-your-players/</link>
+    <description>Recent content in Music Assistant 2.0 Your Music, Your Players on My IT Jorney</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 17 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://brokenek.github.io/tags/music-assistant-2.0-your-music-your-players/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Music Assistant 2.0 Your Music, Your Players</title>
+      <link>https://brokenek.github.io/posts/music_assistant/</link>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://brokenek.github.io/posts/music_assistant/</guid>
+      
+      <description>&lt;p&gt;&lt;img src=&#34;https://brokenek.github.io/posts/music_assistant/image.png&#34; alt=&#34;alt text&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Today, exactly five years ago, I, Marcel, started working on &lt;a href=&#34;https://music-assistant.io/&#34; rel=&#34;external nofollow&#34;&gt;Music Assistant&lt;iconify-icon inline=&#34;true&#34; icon=&#34;tabler:external-link&#34; class=&#34;external-link&#34;&gt;&lt;/iconify-icon&gt;&lt;/a&gt;. What began as a quick script, to sync my playlists so I could switch between streaming providers, grew into a beast on its own.&lt;/p&gt;
+&lt;p&gt;Music Assistant is what I’d like to call a “music library manager” – it gives you full control of playing YOUR music on your players. Just like Home Assistant centralizes all your devices and services to work together, Music Assistant does the same with your music sources and smart audio-playing devices.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

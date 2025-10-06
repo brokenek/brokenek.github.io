@@ -7,15 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language><atom:link href="https://brokenek.github.io/pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>About</title>
+      <title></title>
       <link>https://brokenek.github.io/pages/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://brokenek.github.io/pages/about/</guid>
       
-      <description>&lt;h1 id=&#34;hello--hi---&#34;&gt;Hello , Hi ! 👋 🤟&lt;/h1&gt;
-&lt;p&gt;Miło, że tu jesteś! Poniżej znajdziesz moje dane kontaktowe i serwisy, na których możesz mnie znaleźć.&lt;/p&gt;
-&lt;style&gt; .flex-row { display: flex; flex-wrap: wrap; gap: 100px; } .flex-row img { width: 100%; max-width: 200px; height: auto; box-sizing: border-box; } @media (max-width: 600px) {   .flex-row { flex-direction: column; align-items: right; }  .flex-row img { max-width: 90vw; } } &lt;/style&gt;</description>
+      <description>&lt;pre&gt;&lt;code&gt;                # Hello , Hi, Witaj w &amp;quot;My IT Journey&amp;quot;!👋 🤟
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To osobista opowieść o mojej przygodzie w świecie technologii informacyjnych – od pierwszych, niepewnych kroków z klawiaturą w ręku, przez wyzwania kodowania i odkrywanie nowych narzędzi, aż po dzisiejsze pasje i osiągnięcia w branży IT. &lt;p&gt;   Jeśli kiedykolwiek zastanawiałeś się, jak wygląda droga programisty lub specjalisty IT, to właśnie tutaj podzielę się moimi doświadczeniami, lekcjami i inspiracjami. Zapraszam do wspólnej podróży!&lt;/p&gt;</description>
       
     </item>
     

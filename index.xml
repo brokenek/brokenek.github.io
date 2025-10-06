@@ -420,19 +420,6 @@
     </item>
     
     <item>
-      <title>Hapy Birthday HA</title>
-      <link>https://brokenek.github.io/posts/emoji-support/</link>
-      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://brokenek.github.io/posts/emoji-support/</guid>
-      
-      <description>&lt;p&gt;&lt;img src=&#34;https://brokenek.github.io/posts/emoji-support/image.png&#34; alt=&#34;alt text&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Every September, we celebrate the anniversary of Home Assistant’s first PR in 2013 – for our 12th birthday, we’re going all in on community again. Last month, we asked for submissions on how Home Assistant helps you, and today we will highlight our favorites! We will also take a look at all the cool milestones over the past year in the project, thanks to contributions from you all, and the new things coming up for the community.
-It’s a communal effort&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
       <title>Music Assistant 2.0 Your Music, Your Players</title>
       <link>https://brokenek.github.io/posts/music_assistant/</link>
       <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
@@ -446,72 +433,15 @@ It’s a communal effort&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Table of content</title>
-      <link>https://brokenek.github.io/posts/table-of-content/</link>
-      <pubDate>Tue, 02 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://brokenek.github.io/posts/table-of-content/</guid>
-      
-      <description>&lt;h2 id=&#34;table-of-content&#34;&gt;Table of content&lt;/h2&gt;
-&lt;p&gt;This theme supports displaying table of content (ToC) in blog posts.&lt;/p&gt;
-&lt;h2 id=&#34;parameters&#34;&gt;Parameters&lt;/h2&gt;
-&lt;p&gt;You can manage a ToC with two parameters:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;global &lt;code&gt;toc&lt;/code&gt; parameter;&lt;/li&gt;
-&lt;li&gt;post &lt;code&gt;toc&lt;/code&gt; parameter.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The post &lt;code&gt;toc&lt;/code&gt; parameter has higher priority than the global &lt;code&gt;toc&lt;/code&gt; parameter.&lt;/p&gt;
-&lt;h2 id=&#34;enable-table-of-content-on-all-posts&#34;&gt;Enable table of content on all posts&lt;/h2&gt;
-&lt;p&gt;To enable ToC on all posts (globally) set parameter &lt;code&gt;toc&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt; in &lt;code&gt;hugo.toml&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;toc&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To disable ToC globally, simply ignore the &lt;code&gt;toc&lt;/code&gt; parameter or set it to &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Markdown Syntax Guide</title>
-      <link>https://brokenek.github.io/posts/markdown-syntax/</link>
-      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://brokenek.github.io/posts/markdown-syntax/</guid>
-      
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Rich Content</title>
-      <link>https://brokenek.github.io/posts/rich-content/</link>
-      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://brokenek.github.io/posts/rich-content/</guid>
-      
-      <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Placeholder Text</title>
-      <link>https://brokenek.github.io/posts/placeholder-text/</link>
-      <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://brokenek.github.io/posts/placeholder-text/</guid>
-      
-      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>About</title>
+      <title></title>
       <link>https://brokenek.github.io/pages/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://brokenek.github.io/pages/about/</guid>
       
-      <description>&lt;h1 id=&#34;hello--hi---&#34;&gt;Hello , Hi ! 👋 🤟&lt;/h1&gt;
-&lt;p&gt;Miło, że tu jesteś! Poniżej znajdziesz moje dane kontaktowe i serwisy, na których możesz mnie znaleźć.&lt;/p&gt;
-&lt;style&gt; .flex-row { display: flex; flex-wrap: wrap; gap: 100px; } .flex-row img { width: 100%; max-width: 200px; height: auto; box-sizing: border-box; } @media (max-width: 600px) {   .flex-row { flex-direction: column; align-items: right; }  .flex-row img { max-width: 90vw; } } &lt;/style&gt;</description>
+      <description>&lt;pre&gt;&lt;code&gt;                # Hello , Hi, Witaj w &amp;quot;My IT Journey&amp;quot;!👋 🤟
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To osobista opowieść o mojej przygodzie w świecie technologii informacyjnych – od pierwszych, niepewnych kroków z klawiaturą w ręku, przez wyzwania kodowania i odkrywanie nowych narzędzi, aż po dzisiejsze pasje i osiągnięcia w branży IT. &lt;p&gt;   Jeśli kiedykolwiek zastanawiałeś się, jak wygląda droga programisty lub specjalisty IT, to właśnie tutaj podzielę się moimi doświadczeniami, lekcjami i inspiracjami. Zapraszam do wspólnej podróży!&lt;/p&gt;</description>
       
     </item>
     
